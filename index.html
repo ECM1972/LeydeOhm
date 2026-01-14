@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador Ley de Ohm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🔌 Simulador visual – Ley de Ohm</h1>
+<p class="intro">Modifica los valores y observa cómo cambia el circuito</p>
+
+<div class="contenedor">
+
+    <!-- Circuito -->
+    <div class="circuito">
+        <svg width="300" height="200">
+            <!-- cables -->
+            <line x1="50" y1="100" x2="250" y2="100" stroke="black" stroke-width="4"/>
+            <line x1="50" y1="100" x2="50" y2="150" stroke="black" stroke-width="4"/>
+            <line x1="250" y1="100" x2="250" y2="150" stroke="black" stroke-width="4"/>
+
+            <!-- resistencia -->
+            <rect x="120" y="85" width="60" height="30" fill="#4CAF50"/>
+            <text x="150" y="80" text-anchor="middle">R</text>
+
+            <!-- fuente -->
+            <circle cx="50" cy="160" r="15" fill="#2196F3"/>
+            <text x="50" y="165" text-anchor="middle" fill="white">V</text>
+
+            <!-- corriente -->
+            <polygon id="flecha"
+                points="160,60 180,70 160,80"
+                fill="#f44336"/>
+        </svg>
+    </div>
+
+    <!-- Controles -->
+    <div class="controles">
+
+        <label class="v">
+            Tensión (V):
+            <input type="range" min="0" max="24" step="1" id="voltaje">
+            <span id="vValor">12 V</span>
+        </label>
+
+        <label class="r">
+            Resistencia (Ω):
+            <input type="range" min="1" max="100" step="1" id="resistencia">
+            <span id="rValor">10 Ω</span>
+        </label>
+
+        <div class="resultado">
+            Intensidad (I): <span id="iValor">1.20 A</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Gráfica -->
+<canvas id="grafica" width="500" height="250"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
